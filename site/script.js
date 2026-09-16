@@ -510,8 +510,10 @@ Promise.all(
 const contentsArrow = document.getElementById('contents-arrow'),
     contentsButton = document.getElementById('contents-button'),
     contentsList = document.getElementById('contents-list');
-contentsButton.addEventListener('click', () => {
+const toggleContents = () => {
     const hidden = contentsList.classList.toggle('hidden');
     contentsArrow.innerText = hidden ? '⮝' : '⮟';
     contentsArrow.title = hidden ? 'Expand' : 'Collapse';
-});
+};
+contentsButton.addEventListener('click', toggleContents);
+contentsList.addEventListener('click', toggleContents);

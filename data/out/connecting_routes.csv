@@ -1,0 +1,262 @@
+route_short_name,route_long_name,agency_name,route_color,route_text_color
+1,Delores,Union City Transit,1DE065,FFFFFF
+2,Whipple,Union City Transit,8F1FFF,FFFFFF
+5,Dyer,Union City Transit,DD2C65,FFFFFF
+3,Almaden,Union City Transit,24AAE1,FFFFFF
+4,Tamarack,Union City Transit,F7931D,FFFFFF
+Presidio GO Downtown,Presidio GO Downtown,Presidio Go,EA321B,FFFFFF
+Hollis/Holi,Hollis Holiday,Emery Go-Round,F10909,
+Hollis,Hollis,Emery Go-Round,F10909,
+Shell/Pow Sun,Shellmound/Powell Sun,Emery Go-Round,AF55D8,
+Shell/Pow Sat,Shellmound/Powell Sat,Emery Go-Round,A149D0,
+Shell/Pow,Shellmound/Powell WD,Emery Go-Round,7A219E,
+North,North Loop,San Leandro LINKS,1D4071,ffffff
+South,South Loop,San Leandro LINKS,109246,ffffff
+4,Central Dublin,Wheels,7B00D4,FFFFFF
+580X,Airway,Wheels,0066B3,FFFFFF
+20X,Vasco,Wheels,00A1E4,000000
+70X,Pleasant Hill,Wheels,007A64,FFFFFF
+1,Gleason/Hacienda,Wheels,BEB3D8,000000
+2,East Dublin,Wheels,D9CA16,000000
+8,Hopyard,Wheels,DC81A7,000000
+14,Pleasanton - Livermore via Outlets,Wheels,B5343E,FFFFFF
+30R,Dublin - Livermore via College,Wheels,00AB4E,FFFFFF
+10R,Pleasanton - Livermore via Stanley,Wheels,EF4123,FFFFFF
+3,Stoneridge,Wheels,397791,FFFFFF
+7,Pleasant Hill BART/Shadelands,County Connection,46A076,ffffff
+95X,San Ramon/BART Walnut Creek,County Connection,DE9734,000000
+28,Concord BART/Amtrak,County Connection,006493,ffffff
+601,Rossmoor/WCI,County Connection,7A99AC,ffffff
+602,Walnut Blvd/WCI,County Connection,7A99AC,ffffff
+606,Miramonte High/OIS/Orinda BART,County Connection,7A99AC,ffffff
+611,Oak Grove Middle/Concord BART,County Connection,7A99AC,ffffff
+612,Pine Hollow Middle/Concord BART,County Connection,7A99AC,ffffff
+613,Oak Grove Middle/Concord BART,County Connection,7A99AC,ffffff
+615,Concord High/El Dorado/Concord BART,County Connection,7A99AC,ffffff
+616,Oak Grove Middle/Concord BART,County Connection,7A99AC,ffffff
+619,Oak Grove Middle/Pleasant Hill BART,County Connection,7A99AC,ffffff
+625,Acalanes High/Lafayette BART,County Connection,7A99AC,ffffff
+626,Saint Mary's College/Lafayette BART,County Connection,7A99AC,ffffff
+636,Broadmoor/Dublin/Pleasanton BART,County Connection,7A99AC,ffffff
+16,Martinez Amtrak/Concord BART,County Connection,46A076,ffffff
+315,Concord BART/Bel Air Dr,County Connection,9C629D,ffffff
+21,Walnut Creek BART/San Ramon,County Connection,006493,ffffff
+311,Concord BART/Walnut Creek BART,County Connection,46A076,ffffff
+14,Concord BART/Walnut Creek BART,County Connection,46A076,ffffff
+17,Concord BART/North Concord BART,County Connection,006493,ffffff
+4,Walnut Creek BART/Broadway Plaza,County Connection,46A076,ffffff
+9,DVC/Walnut Creek BART,County Connection,006493,ffffff
+18,Martinez Amtrak/Pleasant Hill BART,County Connection,006493,ffffff
+10,Concord BART/Clayton Rd,County Connection,006493,ffffff
+320,DVC/Concord BART,County Connection,9C629D,ffffff
+310,Concord BART/Clayton Rd,County Connection,9C629D,ffffff
+98X,Martinez Amtrak/Walnut Creek BART,County Connection,DE9734,000000
+93X,Walnut Creek BART/Antioch BART,County Connection,DE9734,000000
+15,Concord BART/Pleasant Hill BART,County Connection,006493,ffffff
+314,Concord BART/DVC,County Connection,46A076,ffffff
+6,Lafayette BART/Orinda BART,County Connection,006493,ffffff
+91X,Concord Commuter Express,County Connection,DE9734,000000
+19,Martinez Amtrak/Concord BART,County Connection,006493,ffffff
+5,Walnut Creek BART/Creekside Dr,County Connection,46A076,ffffff
+316,Martinez Amtrak/Pleasant Hill BART,County Connection,46A076,ffffff
+301,Walnut Creek BART/N Via Monte,County Connection,9C629D,ffffff
+35,Dublin/Pleasanton BART/San Ramon,County Connection,006493,ffffff
+20,DVC/Concord BART,County Connection,006493,ffffff
+335,Dublin BART/San Ramon,County Connection,9C629D,ffffff
+97X,Dublin BART/Bishop Ranch,County Connection,DE9734,000000
+96X,BART Walnut Creek/Bishop Ranch,County Connection,DE9734,000000
+11,Concord BART/Pleasant Hill BART,County Connection,46A076,ffffff
+321,Walnut Creek BART/San Ramon,County Connection,9C629D,ffffff
+1,Rossmoor/Shadelands,County Connection,006493,ffffff
+99X,Martinez Amtrak/North Concord BART,County Connection,46A076,ffffff
+OrangeE,Orange Line East Segment WC26,VTA,CC6600,000000
+203,Civic Center - Baypointe - Alum Rock,VTA,29588c,FFFFFF
+66,North Milpitas - Santa Teresa Stn,VTA,e4002b,FFFFFF
+60,Milpitas BART - Winchester Stn via SJC Airport,VTA,e4002b,FFFFFF
+Express 104,Milpitas BART - Stanford Research Park,VTA,379400,000000
+61,Sierra & Piedmont - Good Samaritan Hospital,VTA,e4002b,FFFFFF
+70,Milpitas BART - Capitol Stn via Jackson,VTA,e4002b,FFFFFF
+71,Milpitas BART - Eastridge via White,VTA,e4002b,FFFFFF
+47,Milpitas BART - Alder Stn via McCarthy Ranch,VTA,29588c,FFFFFF
+Orange Line,Mountain View - Alum Rock,VTA,CC6600,000000
+Rapid 500,San Jose Diridon - Berryessa BART,VTA,e4002b,FFFFFF
+77,Milpitas BART - Eastridge via King,VTA,e4002b,FFFFFF
+20,Milpitas BART - Sunnyvale TC,VTA,29588c,FFFFFF
+R,Red Line,SolTrans,D63029,FFFFFF
+G,Green Line,SolTrans,50A140,FFFFFF
+B,Blue Line,SolTrans,004D91,FFFFFF
+Y,Yellow Line,SolTrans,FDB415,FFFFFF
+Limited,,Caltrain,99d7dc,000000
+Local Weekday,,Caltrain,dcddde,000000
+Local Weekend,,Caltrain,dcddde,000000
+Express,,Caltrain,ce202f,ffffff
+East,,Mission Bay TMA,2074dd,ffffff
+CCA/Adobe,,Mission Bay TMA,b7702a,ffffff
+West,,Mission Bay TMA,548433,ffffff
+580,Del Norte BART Station - San Rafael,Golden Gate Transit,3366FF,FFFFFF
+120,Strawberry - San Francisco,Golden Gate Transit,3366FF,FFFFFF
+580X,Del Norte BART Station - San Rafael Express,Golden Gate Transit,3366FF,FFFFFF
+704,Del Norte BART Station - San Francisco,Golden Gate Transit,CC3333,FFFFFF
+101,Novato - San Francisco,Golden Gate Transit,3366FF,FFFFFF
+EPX,East Palo Alto - San Bruno BART and San Francisco,SamTrans,,
+PCX,Linda Mar Park & Ride - Daly City BART,SamTrans,,
+SKY,Daly City BART - Skyline College,SamTrans,,
+130,Daly City BART - Airport & Linden/Oyster Point,SamTrans,,
+141,Airport/Linden - Skyline College,SamTrans,,
+121,Pope/Bellevue - Skyline College,SamTrans,,
+112,Sharp Park - Colma BART,SamTrans,,
+120,Colma BART - Brunswick/Templeton,SamTrans,,
+122,South SF BART - Stonestown/SF State,SamTrans,,
+138,Safe Harbor Shelter,SamTrans,,
+ECRO,Daly City - SFO,SamTrans,,
+110,Daly City BART - Linda Mar Park & Ride,SamTrans,,
+713,SF Transit Center - San Francisco International,SamTrans,,
+292,San Francisco - SFO - Hillsdale Mall,SamTrans,,
+ECR,Daly City BART - Palo Alto Transit Ctr,SamTrans,,
+397,San Francisco - Palo Alto Transit Ctr,SamTrans,,
+BLUE,Free South City Shuttle - Blue,City of South San Francisco,293adb,FFFFFF
+ORANGE,Free South City Shuttle-Green,City of South San Francisco,F5A623,FFFFFF
+GREEN,Free South City Shuttle-Green,City of South San Francisco,0e834d,FFFFFF
+JPX,Hercules Transit Center - El Cerrito del Norte BART,WestCat,f68121,000000
+J,Hercules Transit Center - Pinole - Richmond - BART,WestCat,5aaa47,000000
+JX,Hercules Transit Center - El Cerrito del Norte BART,WestCat,f68121,000000
+29,Napa-BART Express,VINE Transit,de386e,ffffff
+EmExp,The Emery Express,Emery Express,,
+12,MLK Jr. - Temescal - Grand,AC Transit,2B589C,FFFFFF
+231,Fremont Blvd-Warm Springs-Milpa.,AC Transit,07B5D0,000000
+27,EMY Amtrak-Ashby-El Cerrito Plz.,AC Transit,2B589C,FFFFFF
+281,Decoto - Paseo Padre-Cedar Blvd,AC Transit,07B5D0,000000
+211,Fremont Blvd-Walnut Ave-Mission,AC Transit,2B589C,FFFFFF
+22,Alcatraz - Peralta - Lakeshore,AC Transit,2B589C,FFFFFF
+30,Dimond - Fruitvale - South Shore,AC Transit,2B589C,FFFFFF
+31,Skyline Blvd-Fruitvale-Bay Farm,AC Transit,2B589C,FFFFFF
+72L,San Pablo Limited,AC Transit,2B589C,FFFFFF
+9,E. 14th St. - Mission,AC Transit,A30D11,FFFFFF
+96,Alameda Pt. - 14th Ave. - Dimond,AC Transit,2B589C,FFFFFF
+45,Seminary - Sobrante Park,AC Transit,2B589C,FFFFFF
+51A,Broadway - Santa Clara,AC Transit,A30D11,FFFFFF
+18,Solano - Shattuck - Park Blvd.,AC Transit,A30D11,FFFFFF
+19,Alameda Pt-Buena Vista-Fruitvale,AC Transit,07B5D0,000000
+216,Niles - Stevenson - NewPark,AC Transit,07B5D0,000000
+40,Foothill - Bancroft - Bay Fair,AC Transit,A30D11,FFFFFF
+251,Paseo Padre - Thornton - Cherry,AC Transit,07B5D0,000000
+51B,University - College - Rockridge,AC Transit,A30D11,FFFFFF
+840,Foothill - Eastmont All Nighter,AC Transit,BC8E2D,000000
+93,Ashland - San Lorenzo - A St.,AC Transit,07B5D0,000000
+L,San Pablo - Pierce Transbay,AC Transit,BC8E2D,000000
+54,35th Ave. - Merritt College,AC Transit,2B589C,FFFFFF
+62,7th St. - San Antonio - 23rd Av.,AC Transit,2B589C,FFFFFF
+95,D St. - Maud - Fairview,AC Transit,07B5D0,000000
+G,Colusa - Solano Transbay,AC Transit,BC8E2D,000000
+57,40th St. - MacArthur,AC Transit,A30D11,FFFFFF
+800,Rich - Oak Transbay All Nighter,AC Transit,BC8E2D,000000
+88,Sacramento - Market- Oakland Ave,AC Transit,2B589C,FFFFFF
+98,Eastmont - 98th Ave. - Edgewater,AC Transit,2B589C,FFFFFF
+60,CSUEB - Southland - Tennyson,AC Transit,07B5D0,000000
+65,Grizzly Peak - Euclid,AC Transit,07B5D0,000000
+7,Arlington - Shattuck - Stanford,AC Transit,07B5D0,000000
+72M,Macdonald - San Pablo,AC Transit,2B589C,FFFFFF
+F,Adeline - Market Transbay,AC Transit,2B589C,FFFFFF
+O,Santa Clara - Encinal Transbay,AC Transit,2B589C,FFFFFF
+U,Stanford - Dumbarton - Fremont,AC Transit,BC8E2D,000000
+52,UC Village - Cedar - UC Campus,AC Transit,A30D11,FFFFFF
+67,Spruce - Oxford,AC Transit,07B5D0,000000
+802,San Pablo All Nighter,AC Transit,BC8E2D,000000
+851,Santa Clara-Broadway All Nighter,AC Transit,BC8E2D,000000
+NL,MacArthur Transbay Limited,AC Transit,2B589C,FFFFFF
+200,Decoto - Newark Blvd. - Mowry,AC Transit,2B589C,FFFFFF
+46L,82nd Ave. - Grass Valley Limited,AC Transit,07B5D0,000000
+14,14th St - San Antonio - High St,AC Transit,2B589C,FFFFFF
+239,Pacific Cm.-Grimmer-Warm Springs,AC Transit,2B589C,FFFFFF
+72,CCC - San Pablo,AC Transit,2B589C,FFFFFF
+35,Estudillo - Davis -  Lewelling,AC Transit,07B5D0,000000
+56,Santa Clara - Weekes - Huntwood,AC Transit,07B5D0,000000
+6,Berkeley - Telegraph - Oakland,AC Transit,A30D11,FFFFFF
+41,Whitman - Huntwood - Union Landg,AC Transit,07B5D0,000000
+73,73rd Ave. - Coliseum - Airport,AC Transit,2B589C,FFFFFF
+74,San Pablo Dam - 23rd St.,AC Transit,2B589C,FFFFFF
+801,E 14th - Mission  All Nighter,AC Transit,BC8E2D,000000
+805,MacArthur - Airport All Nighter,AC Transit,BC8E2D,000000
+86,Winton - Industrial - Tennyson,AC Transit,07B5D0,000000
+90,85th Ave. - Elmhurst - 90th Ave.,AC Transit,2B589C,FFFFFF
+97,Hesperian - Alvarado - Decoto,AC Transit,2B589C,FFFFFF
+34,Estudillo - Davis - Meekland,AC Transit,07B5D0,000000
+76,Cutting - Market - Moyers,AC Transit,2B589C,FFFFFF
+36,Claremont - Dwight - Adeline,AC Transit,2B589C,FFFFFF
+71,Parchester - Rumrill - Carlson,AC Transit,2B589C,FFFFFF
+70,Rheem - San Pablo Dam - Appian,AC Transit,2B589C,FFFFFF
+702,Pleas Hill Transbay Early Bird,AC Transit,492F92,FFFFFF
+703,Dubl/Plsntn Transbay Early Bird,AC Transit,492F92,FFFFFF
+1T,International - E. 14th,AC Transit,782B84,FFFFFF
+28,Alvarado - Castro Valley - B St.,AC Transit,07B5D0,000000
+DB1,Dumbarton Exp. - Research Park,Dumbarton Express Consortium,,
+DB,Dumbarton Exp. - Palo Alto,Dumbarton Express Consortium,,
+DCB Shuttle,Daly City Bayshore,Commute.org Shuttles,00fd9a,000000
+SKY Shuttle,Skyline College Express,Commute.org Shuttles,00befd,ffffff
+NFC Shuttle,North Foster City,Commute.org Shuttles,5b91cc,ffffff
+MBC Shuttle,Millbrae Burlingame Commuter,Commute.org Shuttles,00befd,000000
+BAY Shuttle,Burlingame Bayside,Commute.org Shuttles,5b91cc,ffffff
+BPT Shuttle,Burlingame Point,Commute.org Shuttles,5b91cc,ffffff
+UGB Shuttle,Utah-Grand BART,Commute.org Shuttles,5b91cc,ffffff
+OPB Shuttle,Oyster Point BART,Commute.org Shuttles,5b91cc,ffffff
+CC,Capitol Corridor,Capitol Corridor Joint Powers Authority,,
+371,Pittsburg-Bay Point BART / Antioch BART,Tri Delta Transit,3DADE4,FFFFFF
+201X,Pittsburg-Bay Point BART / Concord BART,Tri Delta Transit,002580,FFFFFF
+30X,MARINA EXPRESS,Muni,005B95,FFFFFF
+L,TARAVAL,Muni,942D83,FFFFFF
+FBUS,MARKET & WHARVES BUS,Muni,B49A36,000000
+SF,SHUTTLE CALTRAIN-SOMA-UNION SQ,Muni,005B95,FFFFFF
+714,BART EARLY BIRD,Muni,005B95,FFFFFF
+14R,MISSION RAPID,Muni,BF2B45,FFFFFF
+19,POLK,Muni,005B95,FFFFFF
+1X,CALIFORNIA EXPRESS,Muni,BF2B45,FFFFFF
+23,MONTEREY,Muni,005B95,FFFFFF
+27,BRYANT,Muni,005B95,FFFFFF
+28,19TH AVENUE,Muni,005B95,FFFFFF
+38R,GEARY RAPID,Muni,BF2B45,FFFFFF
+12,FOLSOM-PACIFIC,Muni,005B95,FFFFFF
+14,MISSION,Muni,005B95,FFFFFF
+2,SUTTER,Muni,005B95,FFFFFF
+22,FILLMORE,Muni,005B95,FFFFFF
+33,ASHBURY-18TH ST,Muni,005B95,FFFFFF
+36,TERESITA,Muni,005B95,FFFFFF
+38,GEARY,Muni,005B95,FFFFFF
+45,UNION-STOCKTON,Muni,005B95,FFFFFF
+58,LAKE MERCED,Muni,005B95,FFFFFF
+48,QUINTARA-24TH STREET,Muni,005B95,FFFFFF
+49,VAN NESS-MISSION,Muni,005B95,FFFFFF
+30,STOCKTON,Muni,005B95,FFFFFF
+43,MASONIC,Muni,005B95,FFFFFF
+31,BALBOA,Muni,005B95,FFFFFF
+5,FULTON,Muni,005B95,FFFFFF
+44,O'SHAUGHNESSY,Muni,005B95,FFFFFF
+35,EUREKA,Muni,005B95,FFFFFF
+54,FELTON,Muni,005B95,FFFFFF
+55,DOGPATCH,Muni,005B95,FFFFFF
+57,PARKMERCED,Muni,005B95,FFFFFF
+5R,FULTON RAPID,Muni,BF2B45,FFFFFF
+6,HAYES-PARNASSUS,Muni,005B95,FFFFFF
+LOWL,OWL TARAVAL,Muni,666666,FFFFFF
+67,BERNAL HEIGHTS,Muni,005B95,FFFFFF
+7,HAIGHT-NORIEGA,Muni,005B95,FFFFFF
+8,BAYSHORE,Muni,005B95,FFFFFF
+9R,SAN BRUNO RAPID,Muni,BF2B45,FFFFFF
+M,OCEAN VIEW,Muni,008547,FFFFFF
+N,JUDAH,Muni,005B95,FFFFFF
+8AX,BAYSHORE A EXPRESS,Muni,005B95,FFFFFF
+NBUS,JUDAH BUS,Muni,005B95,FFFFFF
+CA,CALIFORNIA STREET CABLE CAR,Muni,B49A36,000000
+F,MARKET & WHARVES,Muni,B49A36,000000
+J,CHURCH,Muni,A96614,FFFFFF
+K,INGLESIDE,Muni,437C93,FFFFFF
+15,BAYVIEW HUNTERS POINT EXPRESS,Muni,005B95,FFFFFF
+KBUS,INGLESIDE BUS,Muni,437C93,FFFFFF
+8BX,BAYSHORE B EXPRESS,Muni,005B95,FFFFFF
+91,3RD-19TH AVE OWL,Muni,666666,FFFFFF
+52,EXCELSIOR,Muni,005B95,FFFFFF
+9,SAN BRUNO,Muni,005B95,FFFFFF
+NOWL,OWL JUDAH,Muni,666666,FFFFFF
+PH,POWELL-HYDE CABLE CAR,Muni,B49A36,000000
+PM,POWELL-MASON CABLE CAR,Muni,B49A36,000000
+TBUS,THIRD BUS,Muni,BF2B45,FFFFFF
+28R,19TH AVENUE RAPID,Muni,BF2B45,FFFFFF

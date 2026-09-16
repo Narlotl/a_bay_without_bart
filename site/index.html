@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Bay Without BART | Elias Fretwell</title>
+    <link rel="icon" href="assets/favicon.png">
+    <!-- Leaflet -->
+    <link href="assets/leaflet/leaflet.css" rel="stylesheet">
+    <script src="assets/leaflet/leaflet.js"></script>
+    <!-- Chart.js -->
+    <script src="assets/chart.js" type="module"></script>
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet">
+    <!--TODO: meta tags -->
+    <meta name="robots" content="noindex"> <!-- temporary -->
+</head>
+
+<body>
+    <div id="article">
+        <div id="background">
+            BART is facing a budget deficit of $376 million for FY27 as state and federal pandemic funding run
+            out.<sup><a href="#footnote-1" id="footnote-1-source">[1]</a></sup>
+            To address this, State Senators Wiener (San Francisco) and Arreguín (Oakland) wrote <a
+                href="https://calmatters.digitaldemocracy.org/bills/ca_202520260sb63">SB 63</a>, the Connect Bay Area
+            Act. The bill authorizes a sales tax of 1.0% in San Francisco and 0.5% in Alameda, Contra Costa, San Mateo,
+            and Santa Clara counties, the revenue of which would go to local transit districts, pending voter approval
+            in the November 3, 2026 election.<sup><a href="#footnote-2" id="footnote-2-source">[2]</a></sup>
+        </div>
+
+        <div class="columns" id="service-cuts">
+            <div class="w30 full-height" id="service-cut-descriptions">
+                <p id="current-description">
+                    <b>Current Service</b>
+                    <br>
+                    BART currently operates 5 lines. The <span class="red">Red Line</span> goes from Richmond to
+                    Millbrae, the <span class="orange">Orange Line</span> from
+                    Richmond to Berryessa, the <span class="yellow">Yellow Line</span> from Antioch to SFO, the <span
+                        class="green">Green Line</span> from Daly City to
+                    Berryessa, and the <span class="blue">Blue Line</span> from Daly City to Dublin/Pleasanton.
+                </p>
+                <p id="phase-1-description">
+                    <b>Phase 1</b>
+                    <br>
+                    If BART doesn't receive funding, it will be forced to make deep cuts. Phase 1 cuts include
+                    <b>reducing</b>
+                    the <span class="red">Red</span> and <span class="green">Green</span> lines to peak hours only,
+                    <b>decreasing</b> train frequency to once per 30 minutes, <b>stopping</b>
+                    service after 9 PM, and <b>closing</b> 10 stations. Phase 1 implementation would begin January
+                    2027.<sup><a href="#footnote-3" id="footnote-3-source">[3]</a></sup>
+                </p>
+                <p id="phase-2-description">
+                    <b>Phase 2</b>
+                    <br>
+                    In July 2027, Phase 2 would begin, <b>shutting down</b> <span class="blue">Blue Line</span> service,
+                    <b>stopping</b> the <span class="orange">Orange Line</span> at Bay Fair and the <span
+                        class="yellow">Yellow
+                        Line</span> at Concord, and <b>closing</b> all stations south of Daly City except for SFO. BART
+                    service
+                    would resemble what is was 50 years ago and would be <b>reduced</b> by 70% from what it is
+                    now.<sup><a href="#footnote-4" id="footnote-4-source">[4]</a></sup>
+                </p>
+                <p id="phase-3-description">
+                    <b>Phase 3</b>
+                    <br>
+                    If BART continues to have negative revenue after Phase 2 cuts or cannot maintain compliance with
+                    laws and regulations, Phase 3 will begin. Phase 3 would have BART use its remaining money to secure
+                    its assets and completely <b>end</b> service,<sup><a href="#footnote-5"
+                            id="footnote-5-source">[5]</a></sup> <b>leaving</b> most of the Bay Area without rapid
+                    transit.
+                </p>
+                <p><b>This is:</b></p>
+            </div>
+            <div class="w70 align-initial" id="service-cut-maps">
+                <div class="sticky-container">
+                    <img src="assets/maps/current_dark.jpg" title="Current BART service map"
+                        alt="Current BART service map" id="current-map" style="z-index: 3;" />
+                    <img src="assets/maps/phase_1_dark.jpg" title="BART service map after Phase 1 service cuts"
+                        alt="BART service map after Phase 1 service cuts" id="phase-1-map" style="z-index: 2;" />
+                    <img src="assets/maps/phase_2_dark.jpg" title="BART service map after Phase 2 service cuts"
+                        alt="BART service map after Phase 2 service cuts" id="phase-2-map" style="z-index: 1;" />
+                    <img src="assets/maps/phase_3_dark.jpg" title="BART service map after Phase 3 service cuts"
+                        alt="BART service map after Phase 3 service cuts" id="phase-3-map" style="z-index: 0;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div id="title-scroll" class="h200 w0"></div>
+            <div id="title" class="w10 title full-height sticky-container">
+                <h1>A Bay Without BART</h1>
+                <h2><a href="https://eliasfretwell.com/">Elias Fretwell</a></h2>
+            </div>
+        </div>
+
+        <div id="communities-affected" class="columns">
+            <div id="communities-map" class="w70 sticky-container leaflet-map"></div>
+            <div id="communities-description" class="w30 h200">
+                <p class="span-underline">
+                    While the whole Bay would feel the impact of losing BART, the effects won't be evenly distributed.
+                    Communities <span id="station-ca">directly surrounding stations</span> and large portions of <span
+                        id="sf-ca">San Francisco</span>, <span id="oakland-ca">Oakland</span>, and <span
+                        id="berkeley-ca">Berkeley</span> would be hit the hardest as they have the highest
+                    concentrations of people who rely on BART to get to and from work.<sup><a href="#footnote-6"
+                            id="footnote-6-source">[6]</a></sup>
+                </p>
+            </div>
+        </div>
+
+        <div id="traffic" class="columns">
+            <div class="w30 full-height" id="traffic-descriptions">
+                <p id="current-traffic-description" class="span-underline">
+                    <b>Current Traffic</b><sup><a href="#footnote-7" id="footnote-7-source">[7]</a></sup>
+                    <br>
+                    The Bay Area's geography means that we have a lot of <span id="bridges-traffic">bridges</span> and
+                    <span id="tunnels-traffic">tunnels</span>, which restrict the flow of cars. This turns a <span
+                        id="ccc-sf-traffic">30 mile trip from central Contra Costa County to San Francisco</span> take
+                    over an hour, with major backups at the <span id="caldecott-traffic">Caldecott Tunnel</span> and Bay
+                    Bridge. Traffic on <span id="80-traffic">I-80</span> often makes walking seem more appealing. Few
+                    days go by where you don't hear of a backup at the Maze on the morning news. Moving 200,000 people
+                    per day,<sup><a href="#footnote-8" id="footnote-8-source">[8]</a></sup> BART helps keep cars off the
+                    highways, alleviates bottlenecks, and provides a congestion-free way to get around. Without it,
+                    traffic would only get worse.
+                </p>
+                <p id="additional-traffic-description" class="span-underline">
+                    <b>Additional Traffic</b><sup><a href="#footnote-9" id="footnote-9-source">[9]</a></sup>
+                    <br>
+                    If everyone who currently takes BART at peak hour instead drove, thousands of additional cars would
+                    end up on the already-congested freeways, slowing down commutes and worsening air pollution and
+                    climate change. Hardest hit would be the <span id="bay-bridge-traffic">Bay Bridge</span>, the only
+                    reasonable connection between San Francisco and most of the East Bay; <span
+                        id="880-traffic">I-880</span>, connecting southern Alameda County to the northern part and San
+                    Francisco; and <span id="24-traffic">SR 24</span>, the link between central and eastern Contra Costa
+                    to the rest of the Bay.
+                </p>
+            </div>
+            <div class="w70 align-initial">
+                <div id="traffic-map" class="sticky-container leaflet-map"></div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="w30 full-height">
+                <p>
+                    <b>Not Everyone Could Drive</b>
+                    <br>
+                    People without a car need BART to get them around the region. BART provides a crucial service to the
+                    half of its riders who don't have a car.<sup><a href="#footnote-10"
+                            id="footnote-10-source">[10]</a></sup>
+                </p>
+            </div>
+            <div class="w70 sticky-container">
+                <div id="car-ownership-squares" class="squares-chart">
+                    <p>
+                        <span class="golden-yellow">■</span> Do Not Own a Car
+                        <br>
+                        <span class="sky-blue">■</span> Own a Car
+                    </p>
+                    <span class="golden-yellow">■■■■■■■■■■</span>
+                    <br>
+                    <span class="golden-yellow">■■■■■■■■■■</span>
+                    <br>
+                    <span class="golden-yellow">■■■■■■■■■■</span>
+                    <br>
+                    <span class="golden-yellow">■■■■■■■■■■</span>
+                    <br>
+                    <span class="golden-yellow">■■■■■■■■■</span><span class="sky-blue">■</span>
+                    <br>
+                    <span class="sky-blue">■■■■■■■■■■</span>
+                    <br>
+                    <span class="sky-blue">■■■■■■■■■■</span>
+                    <br>
+                    <span class="sky-blue">■■■■■■■■■■</span>
+                    <br>
+                    <span class="sky-blue">■■■■■■■■■■</span>
+                    <br>
+                    <span class="sky-blue">■■■■■■■■■■</span>
+                    <p><small>Each square represents approximately 12,000 riders each week.</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div id="transit-replacement">
+            <div id="tr-intro" class="columns full-height">
+                <div class="w30"></div>
+                <p class="w40">
+                    <b>What if Everyone Took Transit?</b>
+                    <br>
+                    If everyone who rode BART made their trips on other forms of transit, the Bay's other transit
+                    agencies would immediately be overwhelmed. Putting aside the fact that other agencies simply can't
+                    replace BART service, doing that would require massive vehicle purchases and lots of training.
+                </p>
+                <div class="w30"></div>
+            </div>
+            <div id="weta" class="columns full-height">
+                <p class="w30">
+                    <b>Meet <i>Karl</i></b>
+                    <br>
+                    <i>Karl</i> is one of two of the San Francisco Bay Ferry's new Dorado class ferries, which can hold
+                    up to 320 people and cost $15 million each.<sup><a href="#footnote-11"
+                            id="footnote-11-source">[11]</a></sup> In order to move everyone traveling across the Bay
+                    at peak hour, the San Francisco Bay Ferry would need 14 more <i>Karl</i>s,<sup><a
+                            href="#footnote-12" id="footnote-12-source">[12]</a></sup> over half the size of its current
+                    fleet and costing $210 million. These ferries would be at maximum capacity and would only get people
+                    between Oakland and San Francisco, requiring buses to get people to their final destinations.
+                </p>
+                <div class="w70">
+                    <figure>
+                        <img src="assets/karl_transparent.png" alt="Image of San Francisco Bay Ferry Karl ferry boat"
+                            title="San Francisco Bay Ferry Karl ferry boat" />
+                        <figcaption>
+                            Photo <a href="https://sanfranciscobayferry.com/mv-karl-clean-energy-transition-california/"
+                                target="_blank">San Francisco Bay Ferry</a>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="columns" id="replacement-buses">
+                <div class="w70 align-initial">
+                    <div class="sticky-container align-initial">
+                        <figure id="xhe60-image">
+                            <img src="assets/bus_transparent.png" alt="Image of AC Transit New Flyer XHE60 bus"
+                                title="AC Transit New Flyer XHE60 bus" />
+                            <figcaption>
+                                Photo <a href="https://x.com/rideact/status/1398278254591676416" target="_blank">AC
+                                    Transit via Twitter</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="sticky-container">
+                        <!--
+                        <div id="agency-squares">
+                            <div class="squares-chart">
+                                <span class="golden-yellow">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span><span class="golden-yellow">■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■■</span>
+                                <br>
+                                <p><small>Muni (856 + 124)</small></p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="golden-yellow">■■■■</span>
+                                <br>
+                                <span class="golden-yellow">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■</span><span class="golden-yellow">■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■■■</span>
+                                <p><small>AC Transit (626 + 145)</small></p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="sky-blue">■■■</span><span class="golden-yellow">■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <p><small>VTA (431 + 11)</small></p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="golden-yellow">■</span>
+                                <br>
+                                <span class="golden-yellow">■■■■</span>
+                                <br>
+                                <span class="golden-yellow">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <br>
+                                <span class="sky-blue">■■■■</span>
+                                <p><small>SamTrans (315 + 91)</small></p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="golden-yellow">■</span>
+                                <br>
+                                <span class="golden-yellow">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <p>
+                                    <small>
+                                        <b>County Connection</b>
+                                        <br>
+                                        125 + 32
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="golden-yellow">■</span>
+                                <br>
+                                <span class="sky-blue">■</span><span class="golden-yellow">■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <p>
+                                    <small>
+                                        <b>Wheels</b>
+                                        <br>
+                                        74 + 16
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="squares-chart">
+                                <span class="sky-blue">■</span><span class="golden-yellow">■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <br>
+                                <span class="sky-blue">■■</span>
+                                <p>
+                                    <small>
+                                        <b>Tri Delta Transit</b>
+                                        <br>
+                                        62 + 9
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                        -->
+
+                        <canvas id="bus-count-canvas"
+                            aria-label="Chart showing required fleet additions to replace BART">
+                            <!-- Fallback table -->
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Agency</th>
+                                        <th>Current Fleet Size</th>
+                                        <th>Additional Buses Needed</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bus-table-body"></tbody>
+                            </table>
+                        </canvas>
+                    </div>
+                    <div class="sticky-container">
+                        <canvas id="bus-cost-canvas" aria-label="">
+                            <!-- Fallback table -->
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Budget Category (FY 25-26)</th>
+                                        <th>Current (millions of dollars)</th>
+                                        <th>Additional (millions of dollars)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Capital Budget</td>
+                                        <td>407.6</td>
+                                        <td>327.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Operations</td>
+                                        <td>349.4</td>
+                                        <td>67.5</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </canvas>
+                    </div>
+                </div>
+                <div class="w30 full-height">
+                    <p id="xhe60-description">
+                        <b>Meet the New Flyer XHE60</b>
+                        <br>
+                        It doesn't have a fun name like <i>Karl</i> but it can hold up to 125 people and runs on
+                        hydrogen.<sup><a href="#footnote-13" id="footnote-13-source">[13]</a></sup> It's a high-capacity
+                        bus, but transit agencies would still need a lot of them to replace BART.
+                    </p>
+                    <p id="bus-count-description">To move BART riders by bus at peak hour, Bay Area transit agencies
+                        would have to buy
+                        hundreds of buses. AC Transit would need the most, requiring 145 XHE60 or similar-capacity
+                        buses,
+                        followed by Muni (89), SamTrans (66), County Connection (23), Wheels (12), VTA (8), and Tri
+                        Delta
+                        Transit (6).<sup><a href="#footnote-14" id="footnote-14-source">[14]</a></sup>
+                    </p>
+                    <p id="bus-cost-description">
+                        <b>Costly bus service</b>
+                        <br>
+                        Running this replacement bus service would be expensive. AC Transit recently purchased 9 XHE60
+                        buses for $20.3 million,<sup><a href="#footnote-15" id="footnote-15-source">[15]</a></sup>
+                        putting the cost of one bus at $2.26 million and the total for AC Transit's 145 new buses at
+                        $327.9 million, 80% of the agency's currently-budgeted $407.6 million FY2026 capital
+                        budget.<sup><a href="#footnote-16" id="footnote-16-source">[16]</a></sup> AC Transit budgeted
+                        $349.4 million for this fiscal year's bus-related expenses (operator salaries, vehicle parts and
+                        maintenance, fuel, etc.)<sup><a href="#footnote-17" id="footnote-17-source">[17]</a></sup> and
+                        ran 1.424 million bus-hours from July 1, 2025 to June 30, 2026.<sup><a href="#footnote-18"
+                                id="footnote-18-source">[18]</a></sup> AC Transit would need to run an additional
+                        260,000 bus-hours each year,<sup><a href="#footnote-19" id="footnote-19-source">[19]</a></sup>
+                        costing $67.5 million annually at its current bus-hour cost.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="connecting-routes" class="columns full-height">
+            <div class="w30" id="connecting-routes-left"></div>
+            <div class="sticky-container w40" id="connecting-routes-description">
+                <p>
+                    <b>Existing transit weakened</b>
+                    <br>
+                    Even without transit agencies having to work to move people that BART would have moved, their
+                    service won't be as good without rapid rail connections. Around the region, 261 routes connect to
+                    BART, covering a total of 3,100 miles, getting people to and from places where BART doesn't directly
+                    go.<sup><a href="#footnote-20" id="footnote-20-source">[20]</a></sup> One in six BART trips starts
+                    or ends with a connection from one of these routes.<sup><a href="#footnote-21"
+                            id="footnote-21-source">[21]</a></sup>
+                </p>
+            </div>
+            <div class="w30" id="connecting-routes-right"></div>
+        </div>
+
+        <div id="activities">
+            <div id="baywheels" class="columns full-height">
+                <p class="w30">
+                    <b>Baywheels</b>
+                    <br>
+                    Baywheels, the Bay Area's bikeshare system, operated by Lyft, has 770 bike rental spaces near BART
+                    stations.<sup><a href="#footnote-22" id="footnote-22-source">[22]</a></sup> From July 1, 2025 to
+                    June 30, 2026, 595,790 rides started or ended at these rental stations. These trips had a total
+                    distance of over 860,000 miles,<sup><a href="#footnote-23" id="footnote-23-source">[23]</a></sup>
+                    165,000 more miles than the crew of Artemis II traveled going around the Moon and more
+                    than three times their farthest distance from Earth.<sup><a href="#footnote-24"
+                            id="footnote-24-source">[24]</a></sup> 59% of BART trips start or end with some form of
+                    active transportation.<sup><a href="#footnote-25" id="footnote-25-source">[25]</a></sup>
+                </p>
+                <div class="w70">
+                    <div id="transportation-mode-squares" class="squares-chart">
+                        <p>
+                            <span class="golden-yellow">■</span> Walk, Bike, Scooter
+                            <br>
+                            <span class="sky-blue">■</span> Transit, Shuttle, Private Vehicle
+                        </p>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■</span><span class="sky-blue">■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <p><small>Each square represents approximately 12,000 trips each week.</small></p>
+                    </div>
+                </div>
+            </div>
+            <div id="destinations" class="columns full-height">
+                <div class="w30 sticky-container">
+                    <div id="trip-purpose-squares" class="squares-chart">
+                        <p>
+                            <span class="golden-yellow">■</span> Social/Recreational/Shopping
+                            <br>
+                            <span class="sky-blue">■</span> Work/School
+                            <br>
+                            <span class="dark-blue">■</span> Other
+                        </p>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■■■■■■■■■■</span>
+                        <br>
+                        <span class="golden-yellow">■</span><span class="sky-blue">■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■■</span>
+                        <br>
+                        <span class="sky-blue">■■■■■■■■■</span><span class="dark-blue">■</span>
+                        <br>
+                        <span class="dark-blue">■■■■■■■■■■</span>
+                        <p><small>Each square represents approximately 12,000 trips each week.</small></p>
+                    </div>
+                </div>
+                <div class="w40 sticky-container">
+                    <p>
+                        <b>Restaurants and shops</b>
+                        <br>
+                        21% of all trips made by BART are are social, recreational, or involve shopping, including half
+                        of all weekend trips.<sup><a href="#footnote-26" id="footnote-26-source">[26]</a></sup> BART
+                        allows people to get out without having to worry about traffic or finding a parking spot and
+                        adding more time to the meter. Over 2,140 restaurants<sup><a href="#footnote-27"
+                                id="footnote-27-source">[27]</a></sup> and 2,950 shops<sup><a href="#footnote-28"
+                                id="footnote-28-source">[28]</a></sup> are within ½ mile of a BART station.
+                        BART's proximity to thousands of businesses and the number of people it moves to those places
+                        make it an important part of the regional economy.
+                        <br>
+                        <a href="#destinations">Start</a>
+                        <a href="#destinations-end">End</a>
+                    </p>
+                </div>
+                <div class="w30">
+                    <div id="destinations-list"></div>
+                </div>
+            </div>
+            <div id="destinations-end"></div>
+        </div>
+
+        <div id="jobs" class="columns full-height">
+            <div class="w70">
+                <div class="squares-chart">
+                    <p>
+                        <span class="golden-yellow">■</span> Above Regional Median Annual Salary
+                        <br>
+                        <span class="sky-blue">■</span> Below Regional Median Annual Salary
+                    </p>
+                    <!-- This is ugly but it must be formatted this way to avoid whitespace -->
+                    <span class="golden-yellow square-group"
+                        title="Customer Service and Accessibility (8)">■</span><span class="golden-yellow square-group"
+                        title="Procurement, Inventory, and Supply Chain (13)">■</span><span
+                        class="golden-yellow square-group"
+                        title="Administrative and Clerical Support (14)">■</span><span
+                        class="golden-yellow square-group"
+                        title="Communications, Marketing, and Public Affairs (25)">■■</span><span
+                        class="golden-yellow square-group"
+                        title="Legal, Government, and Compliance (39)">■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Executive Leadership and Administration (48)">■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Finance, Accounting, and Budget (62)">■■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Human Resources, Labor, and Workforce Development (87)">■■■■■<br>■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Planning, Projects, and Infrastructure (106)">■■■■■■■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Police, Security, and Safety (225)">■■■■■■■■■■<br>■■■■■■■■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Operations and Transportation (360)">■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Engineering and Technical (423)">■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■</span><span
+                        class="golden-yellow square-group"
+                        title="Maintenance, Facilities, and Trades (434)">■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■<br>■■■■■■■■</span><span
+                        class="sky-blue square-group" title="Executive Leadership and Administration (1)"></span><span
+                        class="sky-blue square-group"
+                        title="Communications, Marketing, and Public Affairs (8)">■</span><span
+                        class="sky-blue square-group" title="Planning, Projects, and Infrastructure (9)">■</span><span
+                        class="sky-blue square-group" title="Customer Service and Accessibility (11)">■</span><span
+                        class="sky-blue square-group" title="Legal, Government, and Compliance (11)">■</span><span
+                        class="sky-blue square-group" title="Administrative and Clerical Support (32)">■■■</span><span
+                        class="sky-blue square-group"
+                        title="Procurement, Inventory, and Supply Chain (42)">■■■■</span><span
+                        class="sky-blue square-group"
+                        title="Human Resources, Labor, and Workforce Development (51)">■■■■■</span><span
+                        class="sky-blue square-group"
+                        title="Finance, Accounting, and Budget (58)">■<br>■■■■■</span><span
+                        class="sky-blue square-group"
+                        title="Police, Security, and Safety (124)">■■■■■■■■■■■■</span><span
+                        class="sky-blue square-group"
+                        title="Engineering and Technical (182)">■■■■■■■■<br>■■■■■■■■■■</span><span
+                        class="sky-blue square-group"
+                        title="Operations and Transportation (666)">■■■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■<br>■</span><span
+                        class="sky-blue square-group"
+                        title="Maintenance, Facilities, and Trades (741)">■■■■■■■■■■■■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■<br>■■■■■■■■■■■■■■■■■■■■■■■■■</span>
+                    <p><small>Each square represents approximately 10 full-time BART employees.</small></p>
+                </div>
+            </div>
+            <p class="w30">
+                <b>BART Jobs</b>
+                <br>
+                In addition to getting people to their jobs and supporting the Bay Area's economy, BART has 3,780
+                full-time employees, with a mean annual salary of $147,000. Half of these employees<sup><a
+                        href="#footnote-29" id="footnote-29-source">[29]</a></sup> make more than the regional
+                median annual salary of $137,000.<sup><a href="#footnote-30" id="footnote-30-source">[30]</a></sup>
+                This makes BART a large employer and one that provides high salaries to thousands of people.
+            </p>
+        </div>
+
+        <div id="conclusion">
+            <div class="columns full-height">
+                <p class="w30"><b>That is:</b></p>
+                <div class="w70"></div>
+            </div>
+            <div class="columns">
+                <div id="title-scroll" class="h200 w0"></div>
+                <div id="title" class="w10 title full-height sticky-container">
+                    <h1>A Bay Without BART</h1>
+                </div>
+            </div>
+            <div class="columns full-height">
+                <div class="w30"></div>
+                <p class="w40 title">
+                    Without BART service, traffic would get worse, especially in places where it's already bad. Other
+                    transit agencies simply could not cover BART's service and would be diminished without being able to
+                    connect to fast long-distance service at BART stations. With more traffic and no alternative, more
+                    time would be lost commuting and more money would be spent on gas, and at a time when gas prices are
+                    stubbornly high. This would also mean less people shopping, eating out, and being out and about,
+                    reversing the rebound from COVID. As a major employer, BART shutting down would eliminate thousands
+                    of jobs, many of them high-paying.
+                <div class="w30"></div>
+            </div>
+            <div class="columns full-height">
+                <div class="w30"></div>
+                <p class="w40 title">
+                    When the Connect Bay Area Act comes to the ballot in November, consider if A Bay Without
+                    BART—thousands of more cars clogging the freeways, thousands of people unable to travel the Bay
+                    Area, thousands fewer jobs, and thousands fewer people enjoying our amazing weather, great food, and
+                    diverse shops—is worth saving a fraction of a percent in sales taxes.
+                </p>
+                <div class="w30"></div>
+            </div>
+        </div>
+
+        <div id="references">
+            <h2>References</h2>
+            <ol>
+                <li id="footnote-1">
+                    <a href="#footnote-1-source">^</a>
+                    "BART is Facing a Financial Deficit", Bay Area Rapid Transit,
+                    <a
+                        href="https://www.bart.gov/about/financials/crisis">https://www.bart.gov/about/financials/crisis</a>.
+                </li>
+                <li id="footnote-2">
+                    <a href="#footnote-2-source">^</a>
+                    California State Legislature, Senate, <i>Connect Bay Area Act</i>, SB 63, <a
+                        href="https://calmatters.digitaldemocracy.org/bills/ca_202520260sb63">https://calmatters.digitaldemocracy.org/bills/ca_202520260sb63</a>.
+                </li>
+                <li id="footnote-3">
+                    <a href="#footnote-3-source">^</a>
+                    BART, "San Francisco Bay Area Rapid Transit District Board Workshop 2026," February 12, 2026, <a
+                        href="https://www.bart.gov/sites/default/files/2026-02/%5BBART%20Board%20Workshop%2002-12-2026%5D%20Presentations.pdf">https://www.bart.gov/sites/default/files/2026-02/[BART
+                        Board Workshop 02-12-2026] Presentations.pdf</a>,
+                    40.
+                </li>
+                <li id="footnote-4">
+                    <a href="#footnote-4-source">^</a>
+                    BART, "San Francisco Bay Area Rapid Transit District Board Workshop 2026," 42.
+                </li>
+                <li id="footnote-5">
+                    <a href="#footnote-5-source">^</a>
+                    BART, "San Francisco Bay Area Rapid Transit District Board Workshop 2026," 60.
+                </li>
+                <li id="footnote-6">
+                    <a href="#footnote-6-source">^</a>
+                    U.S. Census Bureau; "Means of Transportation to Work," <i>American Community Survey, ACS 1-Year
+                        Estimates
+                        Detailed Tables 2024, Table B08301</i>; <a
+                        href="https://data.census.gov/table/ACSDT1Y2024.B08301">https://data.census.gov/table/ACSDT1Y2024.B08301</a>.
+                </li>
+                <li id="footnote-7">
+                    <a href="#footnote-7-source">^</a>
+                    California Department of Transportation, <i>Annual Average Daily Traffic</i>, 2026, distributed by
+                    ArcGIS, <a
+                        href="https://gisdata-caltrans.opendata.arcgis.com/datasets/d8833219913c44358f2a9a71bda57f76_0/about">https://gisdata-caltrans.opendata.arcgis.com/datasets/d8833219913c44358f2a9a71bda57f76_0/about</a>.
+                </li>
+                <li id="footnote-8">
+                    <a href="#footnote-8-source">^</a>
+                    Bay Area Rapid Transit, "May 2026 Monthly Riderhsip Snapshot," June 10, 2026, <a
+                        href="https://www.bart.gov/sites/default/files/2026-06/202605%20Monthly%20Ridership%20Snapshot.pdf">https://www.bart.gov/sites/default/files/2026-06/202605
+                        Monthly Ridership Snapshot.pdf</a>.
+                </li>
+                <li id="footnote-9">
+                    <a href="#footnote-9-source">^</a>
+                    Bay Area Rapid Transit, <i>Hourly Ridership by Origin-Destination Pairs, 2025</i>, <a
+                        href="https://afcweb.bart.gov/ridership/origin-destination/">https://afcweb.bart.gov/ridership/origin-destination/</a>.
+                </li>
+                <li id="footnote-10">
+                    <a href="#footnote-10-source">^</a>
+                    "2023-2024 Regional Transit Passenger Snapshot Survey," Metropolitan Transportation Commission, July
+                    31, 2025, <a
+                        href="https://public.tableau.com/shared/W2Z7CGP9J">https://public.tableau.com/shared/W2Z7CGP9J</a>.
+                </li>
+                <li id="footnote-11">
+                    <a href="#footnote-11-source">^</a>
+                    "Meet Our Fleet," San Francisco Bay Ferry, last modified June 6, 2026, <a
+                        href="https://sanfranciscobayferry.com/meet-our-fleet/">https://sanfranciscobayferry.com/meet-our-fleet/</a>.
+                </li>
+                <li id="footnote-12">
+                    <a href="#footnote-12-source">^</a>
+                    Bay Area Rapid Transit, <i>Hourly Ridership</i>.
+                </li>
+                <li id="footnote-13">
+                    <a href="#footnote-13-source">^</a>
+                    "Xcelsior Charge FC™," New Flyer, August 21, 2023, <a
+                        href="https://www.newflyer.com/site-content/uploads/2023/08/Xcelsior-CHARGE-FC.pdf#page=6">https://www.newflyer.com/site-content/uploads/2023/08/Xcelsior-CHARGE-FC.pdf</a>.
+                </li>
+                <li id="footnote-14">
+                    <a href="#footnote-14-source">^</a>
+                    Bay Area Rapid Transit, <i>Hourly Ridership</i>.
+                </li>
+                <li id="footnote-15">
+                    <a href="#footnote-15-source">^</a>
+                    Alameda-Contra Costa Transit District, <i>Adopted Budget Fiscal Year 2025-26</i>, 54, 2025,
+                    <a
+                        href="https://www.actransit.org/sites/default/files/2025-10/FY2025-26%20District%20Adopted%20Budget%20Book.pdf#page=54">https://www.actransit.org/sites/default/files/2025-10/FY2025-26%20District%20Adopted%20Budget%20Book.pdf</a>.
+                </li>
+                <li id="footnote-16">
+                    <a href="#footnote-16-source">^</a>
+                    Alameda-Contra Costa Transit District, <i>Adopted Budget Fiscal Year 2025-26</i>, 55.
+                </li>
+                <li id="footnote-17">
+                    <a href="#footnote-17-source">^</a>
+                    Alameda-Contra Costa Transit District, <i>Adopted Budget Fiscal Year 2025-26</i>, 132-135.
+                </li>
+                <li id="footnote-18">
+                    <a href="#footnote-18-source">^</a>
+                    AC Transit, <i>Alameda-Contra Costa Transit District Feed Versions, 2026</i>, distributed by <a
+                        href="https://www.transit.land/terms">Transitland</a>, <a
+                        href="https://www.transit.land/feeds/f-9q9-actransit#versions">https://www.transit.land/feeds/f-9q9-actransit</a>.
+                </li>
+                <li id="footnote-19">
+                    <a href="#footnote-19-source">^</a>
+                    Bay Area Rapid Transit, <i>Hourly Ridership</i>.
+                </li>
+                <li id="footnote-20">
+                    <a href="#footnote-20-source">^</a>
+                    <i>Regional Feed, 2026</i>, distributed by 511, <a
+                        href="http://api.511.org/transit/datafeeds?operator_id=RG">http://api.511.org/transit/datafeeds?operator_id=RG</a>.
+                </li>
+                <li id="footnote-21">
+                    <a href="#footnote-21-source">^</a>
+                    <i>Preliminary BART Station Profile Study</i>, 35, RSG, August 2025, <a
+                        href="https://mtcdrive.app.box.com/v/onboard-survey-reports/file/2097328513809">https://mtcdrive.app.box.com/v/onboard-survey-reports/file/2097328513809</a>.
+                </li>
+                <li id="footnote-22">
+                    <a href="#footnote-22-source">^</a>
+                    <i>Station Information, 2026</i>, distributed by Lyft, <a
+                        href="https://gbfs.lyft.com/gbfs/2.3/bay/en/station_information.json">https://gbfs.lyft.com/gbfs/2.3/bay/en/station_information.json</a>.
+                </li>
+                <li id="footnote-23">
+                    <a href="#footnote-23-source">^</a>
+                    <i>Bay Wheels Trip History, 2025-2026</i>, distributed by Lyft, <a
+                        href="https://s3.amazonaws.com/baywheels-data/index.html">https://s3.amazonaws.com/baywheels-data/index.html</a>.
+                </li>
+                <li id="footnote-24">
+                    <a href="#footnote-24-source">^</a>
+                    "NASA Welcomes Record-Setting Artemis II Moonfarers Back to Earth," NASA, April 10, 2026, <a
+                        href="https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/">https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/</a>.
+                </li>
+                <li id="footnote-25">
+                    <a href="#footnote-25-source">^</a>
+                    <i>Preliminary BART Station Profile Study</i>, 35.
+                </li>
+                <li id="footnote-26">
+                    <a href="#footnote-26-source">^</a>
+                    "2023-2024 Regional Transit Passenger Snapshot Survey," Metropolitan Transportation Commission, July
+                    31, 2025, <a
+                        href="https://public.tableau.com/shared/DYC8J3KT4">https://public.tableau.com/shared/DYC8J3KT4</a>.
+                </li>
+                <li id="footnote-27">
+                    <a href="#footnote-27-source">^</a>
+                    OpenStreetMap contributors, <i>Planet Dump</i>, accessed July 28, 2026, distributed by Overpass
+                    Turbo, <a href="https://overpass-turbo.eu/s/2wsd">https://overpass-turbo.eu/s/2wsd</a>.
+                </li>
+                <li id="footnote-28">
+                    <a href="#footnote-28-source">^</a>
+                    OpenStreetMap contributors, <i>Planet Dump</i>, accessed July 28, 2026, distributed by Overpass
+                    Turbo, <a href="https://overpass-turbo.eu/s/2wse">https://overpass-turbo.eu/s/2wse</a>.
+                </li>
+                <li id="footnote-29">
+                    <a href="#footnote-29-source">^</a>
+                    <i>San Francisco Bay Area Rapid Transit District, 2024</i>, distributed by California State
+                    Controller, <a
+                        href="https://gcc.sco.ca.gov/Reports/SpecialDistricts/SpecialDistrict.aspx?entityid=3396&year=2024">https://gcc.sco.ca.gov/Reports/SpecialDistricts/SpecialDistrict.aspx?entityid=3396&year=2024</a>.
+                </li>
+                <li id="footnote-30">
+                    <a href="#footnote-30-source">^</a>
+                    "Income - Vital Signs," Metropolitan Transportation Commission, last modified March 2026, <a
+                        href="https://vitalsigns.mtc.ca.gov/indicators/income">https://vitalsigns.mtc.ca.gov/indicators/income</a>.
+                </li>
+            </ol>
+        </div>
+
+        <div id="methodology">
+            <h2>Methodology</h2>
+            <p>
+                <b>Communities</b>
+                <br>
+                I calculated the number of BART commuters as the number of people whose method of transportation to work
+                is "subway" from the Census Bureau's "Means of Transportation to Work" table (B08301). The Census
+                tabulates light rail (Muni and VTA) and commuter rail (ACE, Caltrain, Capitol Corridor, and SMART)
+                separately, so BART is the only system in the Bay Area counted as a subway.
+            </p>
+            <p>
+                <b>Traffic</b>
+                <br>
+                I found the peak hour for every station pair as well as the shortest route by highway between them. I
+                summed the count of people for each direction on each segment (created by splitting highway lines by the
+                <a href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi polygons</a> of CalTrans' traffic data
+                points) to get the total additional people on each segment. I divided the total number of people by the
+                average amount of people in a car commuting to/from work (1.1989865285540593, calculated from the Census
+                Bureau's "Means of Transportation to Work" table). Comparing this calculated number to the current peak
+                hour car count yields the percent increase in traffic.
+            </p>
+            <p>
+                <b>Replacement</b>
+                <br>
+                To calculate the number of ferries needed, I found the total number of transbay trips during peak hour
+                in a single direction, divided that by ferry capacity, then divided that by two, since each ferry can
+                make two trips back and forth in an hour. To calculate the number of buses needed, I grouped every
+                station by the primary transit agency serving them, then for each pair of stations I added that pair's
+                ridership to a ridership sum for each agency that trip would use. For example, if an average of 100
+                people take BART between San Bruno and Pittsburg/Bay Point at peak hour would add 100 people to the
+                counts for SamTrans, Muni, AC Transit, County Connection, and Tri Delta Transit.
+            </p>
+            <p>
+                <b>Connecting Routes</b>
+                <br>
+                To generate the list of connectiong routes, I found all stops within 500 feet (approximately two blocks)
+                of a BART station and matched those to the routes that serve them. The total length is calculated from
+                the GTFS <a href="https://gtfs.org/documentation/schedule/reference/#shapestxt">shapes.txt</a> file.
+            </p>
+            <p>
+                <b>Baywheels</b>
+                <br>
+                To calculate the number of bike rides, I counted the trips starting within 500 feet of a BART station.
+                To approximate the length of each trip, I calculated the length of the legs of the right triangle
+                connecting the start and end point. This overestimates the distance when the actual route taken involved
+                segments at an angle to the latitude/longitude grid, such as from Market and Castro to the Ferry
+                Building, and underestimates the distance when the route taken involves curved segment, such as across
+                the UC Berkeley campus, or when the route involves multiple turns, such as the Wiggle.
+            </p>
+            <p>
+                <b>Restaurants and Shops</b>
+                <br>
+                Data for locations comes from <a href="https://openstreetmap.org">OpenStreetMap</a> via <a
+                    href="https://overpass-turbo.eu/">Overpass Turbo</a>. I counted any element with an <a
+                    href="https://wiki.openstreetmap.org/wiki/Key:amenity">amenity attribute</a> of <span
+                    class="code">bar</span>, <span class="code">biergarten</span>,
+                <span class="code">cafe</span>, <span class="code">ice_cream</span>, or <span
+                    class="code">restaurant</span> as a restaurant and anything with the <a
+                    href="https://wiki.openstreetmap.org/wiki/Key:shop">shop attribute</a> as a shop. The queries for
+                restaurants and shops are below, run on a bounding box encompassing the full BART service area.
+            <div class="columns">
+                <p class="w50 code code-block">
+                    (
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span
+                        class="white">amenity=restaurant</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span
+                        class="white">amenity=restaurant</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span
+                        class="white">amenity=ice_cream</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span
+                        class="white">amenity=ice_cream</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span
+                        class="white">amenity=bar</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span
+                        class="white">amenity=bar</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span
+                        class="white">amenity=biergarten</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span
+                        class="white">amenity=biergarten</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span
+                        class="white">amenity=cafe</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span
+                        class="white">amenity=cafe</span>](<span class="orange-code">{{</span>bbox<span
+                        class="orange-code">}}</span>);
+                    <br>
+                    );
+                    <br>
+                    <span class="purple">out center</span>;
+                </p>
+                <p class="w50 code code-block">
+                    (
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">node</span>[<span class="white">shop</span>](<span
+                        class="orange-code">{{</span>bbox<span class="orange-code">}}</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="purple">way</span>[<span class="white">shop</span>](<span
+                        class="orange-code">{{</span>bbox<span class="orange-code">}}</span>);
+                    <br>
+                    );
+                    <br>
+                    <span class="purple">out center</span>;
+                </p>
+            </div>
+            </p>
+            <p>
+                <b>Jobs</b>
+                <br>
+                I counted full-time employees as any employee whose total wages were greater than or equal to their
+                minimum salary.
+            </p>
+        </div>
+
+        <div id="ai-disclosure">
+            <h2>AI Disclosure</h2>
+            <p>
+                I used OpenAI's GPT-5.5 Instant to organize over 500 unique BART position names into 13 categories. No
+                AI was used in the gathering or processing of data nor in the writing of this article.
+                <!-- TODO:
+                    link to job categories
+                    -->
+            </p>
+        </div>
+    </div>
+
+    <div id="contents">
+        <div id="contents-button" aria-role="button">
+            <b>Contents</b>
+            <span id="contents-arrow" title="Expand">⮝</span>
+        </div>
+        <div id="contents-list" class="hidden">
+            <a href="#background">Introduction</a>
+            <br>
+            <a href="#communities-affected">Communities</a>
+            <br>
+            <a href="#traffic">Traffic</a>
+            <br>
+            <a href="#transit-replacement">Replacement</a>
+            <br>
+            <a href="#connecting-routes">Connections</a>
+            <br>
+            <a href="#activities">Activities</a>
+            <br>
+            <a href="#jobs">Jobs</a>
+            <br>
+            <a href="#conclusion">Conclusion</a>
+            <br>
+            <a href="#references">References</a>
+            <br>
+            <a href="#methodology">Methodology</a>
+            <br>
+            <a href="#ai-disclosure">AI Disclosure</a>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

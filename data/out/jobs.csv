@@ -1,0 +1,27 @@
+high_paying,category,count
+False,Administrative and Clerical Support,32
+False,"Communications, Marketing, and Public Affairs",8
+False,Customer Service and Accessibility,11
+False,Engineering and Technical,182
+False,Executive Leadership and Administration,1
+False,"Finance, Accounting, and Budget",58
+False,"Human Resources, Labor, and Workforce Development",51
+False,"Legal, Government, and Compliance",11
+False,"Maintenance, Facilities, and Trades",741
+False,Operations and Transportation,666
+False,"Planning, Projects, and Infrastructure",9
+False,"Police, Security, and Safety",124
+False,"Procurement, Inventory, and Supply Chain",42
+True,Administrative and Clerical Support,14
+True,"Communications, Marketing, and Public Affairs",25
+True,Customer Service and Accessibility,8
+True,Engineering and Technical,423
+True,Executive Leadership and Administration,48
+True,"Finance, Accounting, and Budget",62
+True,"Human Resources, Labor, and Workforce Development",87
+True,"Legal, Government, and Compliance",39
+True,"Maintenance, Facilities, and Trades",434
+True,Operations and Transportation,360
+True,"Planning, Projects, and Infrastructure",106
+True,"Police, Security, and Safety",225
+True,"Procurement, Inventory, and Supply Chain",13

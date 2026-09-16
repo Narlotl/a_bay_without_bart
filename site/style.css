@@ -1,0 +1,353 @@
+@font-face {
+    font-family: Frutiger;
+    src: url(assets/frutiger.ttf);
+}
+
+:root {
+    --golden-yellow: #FDB913;
+    --sky-blue: #8DC6E8;
+    --dark-blue: #011E41;
+    --bg-gray: #232227;
+    --bg-gray-rgb: 35, 34, 39;
+    --body-color: white;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Frutiger;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 0;
+    background-color: var(--bg-gray);
+    color: var(--body-color);
+}
+
+/* Styles for the title container */
+
+.title {
+    display: block;
+    text-align: center;
+}
+
+h2 > a {
+    color: inherit;
+}
+
+/* Styles for column displays */
+
+@media (min-width: 768px) {
+    .columns {
+        display: flex;
+    }
+
+    .columns > div {
+        align-content: center;
+    }
+}
+
+.columns > div:not(:last-child) {
+    margin-right: 1rem;
+}
+
+.columns > div:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.w0 {
+    flex: 0;
+}
+
+.w10 {
+    flex: 1;
+}
+.w20 {
+    flex: 2;
+}
+
+.w30 {
+    flex: 3;
+}
+
+.w40 {
+    flex: 4;
+}
+
+.w50 {
+    flex: 5;
+}
+
+.w60 {
+    flex: 6;
+}
+
+.w70 {
+    flex: 7;
+}
+
+.w80 {
+    flex: 8;
+}
+
+.w90 {
+    flex: 9;
+}
+
+/* General styles */
+
+/* Prevent superscripts from affecting line height
+ * https://css-tricks.com/snippets/css/prevent-superscripts-and-subscripts-from-affecting-line-height/ */
+sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+img {
+    max-width: 100%;
+}
+
+#article {
+    padding: 2rem;
+}
+
+#article > div {
+    margin-bottom: 2rem;
+}
+
+a {
+    color: var(--sky-blue);
+}
+
+/* Styles for opening service cut section */
+
+#service-cut-maps {
+    align-content: initial;
+}
+
+#service-cut-maps img {
+    position: absolute;
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sticky-container > img {
+    height: fit-content;
+    max-height: 100vh;
+}
+
+.align-initial {
+    display: flex;
+    flex-direction: column;
+}
+
+.full-height > p {
+    height: 100vh;
+    align-content: center;
+}
+
+.h100 {
+    height: 100vh;
+}
+
+.h200 {
+    height: 200vh;
+}
+
+/* Line color styles */
+
+.red {
+    background-color: #ed1c24;
+    color: white;
+}
+
+.orange {
+    background-color: #faa619;
+    color: black;
+}
+
+.yellow {
+    background-color: #ffe600;
+    color: black;
+}
+
+.green {
+    background-color: #51b848;
+    color: white;
+}
+
+.blue {
+    background-color: #009ad9;
+    color: white;
+}
+
+.red, .orange, .yellow, .green, .blue, .line-pill, #connecting-routes p > * {
+    padding: 0.125em 0.125em 0 0.125em;
+    border-radius: 0.125em;
+}
+
+/* Styles for interactive maps */
+
+.leaflet-map {
+    width: 100%;
+    height: 100vh;
+}
+
+.legend {
+    background-color: var(--bg-gray);
+    padding: 1rem;
+}
+
+.leaflet-control-attribution {
+    background-color: rgba(var(--bg-gray-rgb), 0.8) !important;
+    color: var(--body-color);
+}
+
+.leaflet-control-attribution > a {
+    color: var(--sky-blue);
+}
+
+.leaflet-touch .leaflet-bar {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.leaflet-bar a {
+    background-color: var(--bg-gray);
+    color: var(--body-color);
+}
+
+.leaflet-bar a.leaflet-disabled, .leaflet-bar a:hover {
+    background-color: #333333;
+    color: var(--body-color);
+}
+
+/* Styles for elements of article */
+
+.span-underline > span {
+    text-decoration: underline dotted;
+    cursor: cell;
+}
+
+#communities-description {
+    margin-top: -50vh;
+}
+
+canvas {
+    width: 100%;
+    padding: 5%;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.sky-blue {
+    color: var(--sky-blue);
+}
+
+.golden-yellow {
+    color: var(--golden-yellow);
+}
+
+.dark-blue {
+    color: var(--dark-blue);
+}
+
+.squares-chart {
+    text-align: center;
+}
+
+.squares-chart > span, .square-group {
+    font-size: 5vh;
+    line-height: 1em;
+}
+
+.squares-chart span:not(.square-group) {
+    --square-border-color: black;
+    text-shadow: 1px 1px 0px var(--square-border-color), -1px -1px 0px var(--square-border-color), -1px 1px 0px var(--square-border-color), 1px -1px 0px var(--square-border-color);
+}
+
+.square-group {
+    --square-border-color: white;
+    box-shadow: 1px 1px 0px var(--square-border-color), -1px -1px 0px var(--square-border-color), -1px 1px 0px var(--square-border-color), 1px -1px 0px var(--square-border-color);
+}
+
+#connecting-routes p > img {
+    height: 1em;
+    vertical-align: text-bottom;
+}
+
+#contents {
+    display: inline-block;
+    position: sticky;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: #3f3f41;
+    padding: 0.5rem;
+    border-radius: 2px;
+}
+
+#contents-arrow {
+    float: right;
+}
+
+#contents-button {
+        cursor: pointer;
+}
+
+#contents-list {
+    visibility: visible;
+    max-height: 100vh;
+    transition: 0.25s max-height;
+}
+
+#contents-list.hidden {
+    visibility: hidden;
+    max-height: 0;
+}
+
+/* Table styles */
+
+table {
+    border: 2px solid var(--body-color);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--body-color);
+}
+
+td:not(:first-child) {
+    text-align: center;
+}
+
+/* Code block styles */
+
+.code {
+    font-family: monospace;
+    background-color: #111111;
+    color: #b9b3aa;
+}
+
+.code-block {
+    margin: 1rem;
+}
+
+.purple {
+    color: #ed6dff;
+}
+
+.white {
+    color: white;
+}
+
+.orange-code {
+    color: #e09244;
+}

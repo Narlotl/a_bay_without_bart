@@ -1,0 +1,26 @@
+Microdata: https://www.census.gov/programs-surveys/acs/microdata/access.html
+PUMA and tract shapes: https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.2024.html
+Means of Transportation to Work: https://data.census.gov/table/ACSDT1Y2024.B08301
+Means of Transportation to Work by Time of Departure to Go to Work: https://data.census.gov/table/ACSDT1Y2024.B08132
+County boundaries: https://gis.data.ca.gov/datasets/CDEGIS::california-counties-3/about
+Highways: https://gisdata-caltrans.opendata.arcgis.com/datasets/2d56e65de89c418780056651640291e8_0/about
+BART ridership: https://afcweb.bart.gov/ridership/origin-destination/
+BART geospatial: https://www.bart.gov/schedules/developers/geo
+Parking meter locations: https://data.sfgov.org/Transportation/Parking-Meters/8vzz-qzz9/about_data
+Parking meter transactions: https://data.sfgov.org/Transportation/SFMTA-Parking-Meter-Detailed-Revenue-Transactions/imvp-dq3v/about_data
+Businesses: https://data.sfgov.org/Economy-and-Community/Registered-Business-Locations-San-Francisco/g8m3-pdis/about_data
+Transfers: https://github.com/BayAreaMetro/clpr/blob/master/data-raw/Transfers%20by%20day%20by%20agency%20pair.csv
+GTFS routes + agencies: https://data.ca.gov/dataset/cal-itp-gtfs-ingest-pipeline-dataset
+Highway traffic volume: https://gisdata-caltrans.opendata.arcgis.com/datasets/d8833219913c44358f2a9a71bda57f76_0/about
+Ferry capacity: https://sanfranciscobayferry.com/meet-our-fleet/
+San Francisco Bay Ferry GTFS: https://sanfranciscobayferry.com/developers/
+Bus capacity: https://www.newflyer.com/new-flyer-buses-meet-the-xcelsior-family/#:~:text=Passenger%20capacity
+Salaries: https://gcc.sco.ca.gov/Reports/SpecialDistricts/SpecialDistrict.aspx?entityid=3396&year=2024
+Vehicle emissions: https://nepis.epa.gov/Exe/ZyPDF.cgi?Dockey=P101CUZD.pdf#page=4
+Passenger survey: https://public.tableau.com/app/profile/bayareametro/viz/Snapshot_Survey_Dashboard/Intro
+Median income: https://vitalsigns.mtc.ca.gov/indicators/income
+Station profile study: https://mtcdrive.app.box.com/v/onboard-survey-reports/file/2097328513809
+Fiscal cliff: https://www.bart.gov/about/financials/crisis
+Berkeley bounds: https://www.arcgis.com/home/item.html?id=9818743941b2458aa64eaa716c5faa0a
+Oakland bounds: https://data.oaklandca.gov/Property/City-of-Oakland-City-Limits/9bhq-yt6w
+Bus cost: https://www.actransit.org/sites/default/files/2025-10/FY2025-26%20District%20Adopted%20Budget%20Book.pdf#page=54

@@ -24,7 +24,7 @@ body {
 
 /* Styles for the title container */
 
-.title {
+.center {
     display: block;
     text-align: center;
 }
@@ -118,6 +118,10 @@ a {
     color: var(--sky-blue);
 }
 
+h3 {
+    display: inline-block;
+}
+
 /* Styles for opening service cut section */
 
 #service-cut-maps {
@@ -147,7 +151,7 @@ a {
     flex-direction: column;
 }
 
-.full-height > p {
+.full-height > * {
     height: 100vh;
     align-content: center;
 }
@@ -278,38 +282,25 @@ figcaption {
     box-shadow: 1px 1px 0px var(--square-border-color), -1px -1px 0px var(--square-border-color), -1px 1px 0px var(--square-border-color), 1px -1px 0px var(--square-border-color);
 }
 
-#connecting-routes p > img {
-    height: 1em;
-    vertical-align: text-bottom;
+#destinations-container {
+    overflow-y: scroll;
+    height: 150vh;
 }
 
-#contents {
-    display: inline-block;
+#destinations-container > div {
+    text-align: center;
     position: sticky;
-    bottom: 1rem;
-    left: 1rem;
-    background-color: #3f3f41;
-    padding: 0.5rem;
-    border-radius: 2px;
 }
 
-#contents-arrow {
-    float: right;
+#destinations-up-arrow {
+    display: none; /* hide at beginning */
+    top: 0;
+    background: linear-gradient(#444444, var(--bg-gray));
 }
 
-#contents-button {
-        cursor: pointer;
-}
-
-#contents-list {
-    visibility: visible;
-    max-height: 100vh;
-    transition: 0.25s max-height;
-}
-
-#contents-list.hidden {
-    visibility: hidden;
-    max-height: 0;
+#destinations-down-arrow {
+    bottom: 0;
+    background: linear-gradient(var(--bg-gray), #444444);
 }
 
 /* Table styles */
@@ -350,4 +341,60 @@ td:not(:first-child) {
 
 .orange-code {
     color: #e09244;
+}
+
+/* Navbar */
+
+body {
+    display: flex;
+}
+
+#navbar {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    z-index: 10000;
+}
+
+#contents-list {
+    outline: 1px solid var(--body-color);
+}
+
+#navbar > * {
+    align-content: center;
+}
+
+#nav-hamburger {
+    margin: 1rem;
+    color: var(--body-color);
+    font-size: 3rem;
+    text-align: center;
+    text-decoration: none;
+    line-height: 2rem;
+}
+
+#navbar-title {
+    font-size: initial;
+    font-weight: bold;
+}
+
+#navbar.expanded > #contents-list {
+    visibility: visible;
+    background-color: var(--bg-gray);
+    position: absolute;
+    left: 5rem;
+    padding: 1rem;
+    height: 100%;
+    width: auto;
+}
+
+#contents-list {
+    visibility: hidden;
+    width: 0;
+}
+
+#scroll-bar {
+    background-color: var(--body-color);
+    width: 2px;
 }

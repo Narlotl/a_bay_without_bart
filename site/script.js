@@ -32,9 +32,9 @@ registerScrollFade(
 
 
 // Set up fade for shutdown phase maps
-const phaseDescriptions = document.querySelectorAll('#service-cut-descriptions > p'),
+const phaseDescriptions = document.querySelectorAll('#service-cut-descriptions > div'),
     phaseMaps = document.querySelectorAll('#service-cut-maps img');
-for (let i = 0; i < phaseDescriptions.length - 1; i++)
+for (let i = 0; i < phaseDescriptions.length; i++)
     registerScrollFade(phaseDescriptions[i], phaseMaps[i])
 
 
@@ -506,14 +506,43 @@ Promise.all(
         destinationsList.appendChild(p);
     }
 });
+const destinationsContainer = document.getElementById('destinations-container'),
+    destinationsUpArrow = document.getElementById('destinations-up-arrow'),
+    destinationsDownArrow = document.getElementById('destinations-down-arrow');
+destinationsContainer.addEventListener('scroll', () => {
+    if (destinationsContainer.scrollTop < 16)//destinationsContainer.scrollHeight)
+        destinationsUpArrow.style.display = 'none';
+    else if (destinationsContainer.scrollTop >= destinationsContainer.scrollHeight - destinationsContainer.clientHeight - 16)
+        destinationsDownArrow.style.display = 'none';
+    else {
+        destinationsUpArrow.style.display = 'inherit';
+        destinationsDownArrow.style.display = 'inherit';
+    }
+});
 
-const contentsArrow = document.getElementById('contents-arrow'),
-    contentsButton = document.getElementById('contents-button'),
+
+// Contents
+
+const contentsButton = document.getElementById('nav-hamburger'),
     contentsList = document.getElementById('contents-list');
+navbar = document.getElementById('navbar');
 const toggleContents = () => {
-    const hidden = contentsList.classList.toggle('hidden');
-    contentsArrow.innerText = hidden ? '⮝' : '⮟';
-    contentsArrow.title = hidden ? 'Expand' : 'Collapse';
+    const hidden = navbar.classList.toggle('expanded');
+    contentsButton.title = hidden ? 'Expand' : 'Collapse';
 };
 contentsButton.addEventListener('click', toggleContents);
-contentsList.addEventListener('click', toggleContents);
+contentsList.addEventListener('click', e => {
+    if (e.target.tagName === 'A')
+        toggleContents();
+});
+document.getElementById('article').addEventListener('click', () => {
+    navbar.classList.remove('expanded');
+    contentsButton.title = 'Expand';
+});
+
+
+// Scroll bar
+
+const scrollBar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () =>
+    scrollBar.style.height = 100 * document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) + '%');

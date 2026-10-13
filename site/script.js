@@ -37,14 +37,6 @@ const registerScrollFade = (
     });
 
 
-// Set up fade for title
-registerScrollFade(
-    document.getElementById('title-scroll'),
-    document.getElementById('title'),
-    scrollPercent => 1 - (scrollPercent - 0.25) * 4
-);
-
-
 // Set up fade for shutdown phase maps
 const phaseDescriptions = document.querySelectorAll('#service-cut-descriptions > div'),
     phaseMaps = document.querySelectorAll('#service-cut-maps img');

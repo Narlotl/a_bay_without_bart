@@ -6,7 +6,7 @@ const cachedData = async (cache, url) => {
     if (data)
         data = await data.json();
     else
-        data = fetch(url).then(res => { cache.put(url, res); return res.json(); });
+        data = fetch(url).then(res => { cache.put(url, res.clone()); return res.json(); });
     return data;
 };
 

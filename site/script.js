@@ -38,10 +38,6 @@ for (let i = 0; i < phaseDescriptions.length; i++)
     registerScrollFade(phaseDescriptions[i], phaseMaps[i])
 
 
-const bartIcon = L.icon({
-    iconUrl: 'assets/bart.png',
-    iconSize: [20, 16.7]
-});
 // 11-color ramp using MTC colors: https://mtc.ca.gov/sites/default/files/documents/2026-02/RegionalNetworkIdentityDesignGuide260217.pdf#page=5
 const colorRamp = [
     '#011E41',

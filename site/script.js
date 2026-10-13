@@ -15,13 +15,18 @@ const cachedData = async (cache, url) => {
 
 const getScrollPercent = element => (window.scrollY - element.offsetTop) / element.scrollHeight;
 
+const addScrollListener = (element, func) => {
+    func();
+    element.addEventListener('scroll', func);
+};
+
 const registerScrollFade = (
     scrollElement,
     fadeElement,
     opacityFunction = scrollPercent => 1 - scrollPercent,
     dNone = true // Whether or not to set display to none at 0 opacity
 ) =>
-    window.addEventListener('scroll', () => {
+    addScrollListener(window, () => {
         const scrollPercent = getScrollPercent(scrollElement);
         if (scrollPercent < -0.5 || scrollPercent > 1.5)
             return;
@@ -253,7 +258,7 @@ cachePromise.then(async cache => {
 
     // Interpolate between current and additional color on scroll
     const scrollElement = document.getElementById('current-traffic-description');
-    window.addEventListener('scroll', () => {
+    addScrollListener(window, () => {
         const scrollPercent = getScrollPercent(scrollElement);
         if (scrollPercent < 0 || scrollPercent > 1)
             return;
@@ -517,7 +522,7 @@ Promise.all(
 const destinationsContainer = document.getElementById('destinations-container'),
     destinationsUpArrow = document.getElementById('destinations-up-arrow'),
     destinationsDownArrow = document.getElementById('destinations-down-arrow');
-destinationsContainer.addEventListener('scroll', () => {
+addScrollListener(destinationsContainer, () => {
     if (destinationsContainer.scrollTop < 16)//destinationsContainer.scrollHeight)
         destinationsUpArrow.style.display = 'none';
     else if (destinationsContainer.scrollTop >= destinationsContainer.scrollHeight - destinationsContainer.clientHeight - 16)
@@ -552,5 +557,5 @@ document.getElementById('article').addEventListener('click', () => {
 // Scroll bar
 
 const scrollBar = document.getElementById('scroll-bar');
-window.addEventListener('scroll', () =>
+addScrollListener(window, () =>
     scrollBar.style.height = 100 * document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) + '%');

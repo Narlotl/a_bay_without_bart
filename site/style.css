@@ -397,4 +397,5 @@ body {
 #scroll-bar {
     background-color: var(--body-color);
     width: 2px;
+    height: 0px;
 }

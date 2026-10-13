@@ -1,4 +1,18 @@
+// Open cache
+const cachePromise = caches.open('cache');
+// Return cached data if it exists, otherwise fetch and cache it
+const cachedData = async (cache, url) => {
+    let data = await cache.match(url);
+    if (data)
+        data = await data.json();
+    else
+        data = fetch(url).then(res => { cache.put(url, res); return res.json(); });
+    return data;
+};
+
+
 // Scroll fade functions
+
 const getScrollPercent = element => (window.scrollY - element.offsetTop) / element.scrollHeight;
 
 const registerScrollFade = (
@@ -168,7 +182,11 @@ L.tileLayer('http://services.arcgisonline.com/arcgis/rest/services/Canvas/World_
     attribution: '&copy; <a href="https://services.arcgisonline.com/arcgis/rest/services/Canvas/World_Light_Gray_Base/MapServer">ArcGIS</a>'
 }).addTo(caMap);
 
-fetch('data/data_acs_square.geojson').then(res => res.json()).then(data => {
+cachePromise.then(async cache => {
+    // Load data
+    const data = await cachedData(cache, 'data/data_acs_square.geojson');
+
+    // Populate map
     const classes = [0, 5, 10, 15, 20, 30, 50, 75, 125, 200, 400];
     createLegend('BART Commuters / km²', classes).addTo(caMap);
 
@@ -225,7 +243,9 @@ const bindHighwayPopup = (feature, layer) => {
     `);
 }
 
-fetch('data/traffic_simplified.geojson').then(res => res.json()).then(data => {
+cachePromise.then(async cache => {
+    const data = await cachedData(cache, 'data/traffic_simplified.geojson');
+
     const totalClasses = [0, 3000, 5000, 7500, 10000, 11500, 12500, 13000, 14000, 15000, 16500];
     createLegend('Cars During Peak Hour', totalClasses).addTo(tMap);
 

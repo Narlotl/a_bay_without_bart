@@ -2,3 +2,5 @@ data/in
 gis
 __pycache__
 svg
+site/*.pem
+site/https_module.js

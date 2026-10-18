@@ -41,14 +41,12 @@ h2 > a {
 
 /* Styles for column displays */
 
-@media (min-width: 768px) {
-    .columns {
-        display: flex;
-    }
+.columns {
+    display: flex;
+}
 
-    .columns > div {
-        align-content: center;
-    }
+.columns > div {
+    align-content: center;
 }
 
 .columns > div:not(:last-child) {

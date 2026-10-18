@@ -22,7 +22,13 @@ body {
     color: var(--body-color);
 }
 
-/* Styles for the title container */
+@media only screen 
+and (min-width : 321px) {
+        /* Some sections need spacing from the next on mobile */
+    .mobile-margin {
+        margin-bottom: 15vh;
+    }
+}
 
 .center {
     display: block;
@@ -152,16 +158,12 @@ h3 {
 }
 
 .full-height > * {
-    height: 100vh;
+    min-height: 100vh;
     align-content: center;
 }
 
-.h100 {
-    height: 100vh;
-}
-
 .h200 {
-    height: 200vh;
+    min-height: 200vh;
 }
 
 /* Line color styles */
@@ -267,9 +269,22 @@ figcaption {
     text-align: center;
 }
 
-.squares-chart > span, .square-group {
-    font-size: 5vh;
-    line-height: 1em;
+@media only screen 
+and (min-width : 321px) {
+    /* Make squares smaller on mobile */
+    .squares-chart > span, .square-group {
+        font-size: 4vh;
+        line-height: 0px;
+    }
+}
+
+@media only screen 
+and (min-width : 1224px) {
+    /* Larger screens */
+    .squares-chart > span, .square-group {
+        font-size: 5vh;
+        line-height: 1em;
+    }
 }
 
 .squares-chart span:not(.square-group) {

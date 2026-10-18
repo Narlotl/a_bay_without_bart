@@ -559,3 +559,12 @@ document.getElementById('article').addEventListener('click', () => {
 const scrollBar = document.getElementById('scroll-bar');
 addScrollListener(window, () =>
     scrollBar.style.height = 100 * document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) + '%');
+
+
+// Prompt user to use landscape orientation
+if (!screen.orientation.type.includes('landscape'))
+    alert('Please rotate your device to landscape orientation.');
+screen.orientation.addEventListener('change', e => {
+    if (!e.target.type.includes('landscape'))
+        alert('Please rotate your device to landscape orientation.');
+});
